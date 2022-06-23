@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using CarShop.Models.Identity;
 
 namespace CarShop
 {
@@ -29,6 +31,8 @@ namespace CarShop
         {
             services.AddDbContext<ApplicationContext>(options =>
     options.UseSqlServer(Configuration.GetConnectionString("CarContext")));
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationContext>();
             services.AddControllersWithViews();
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -58,6 +62,7 @@ namespace CarShop
             app.UseRouting();
             app.UseStaticFiles();
             app.UseSession();
+            app.UseAuthentication();    // подключение аутентификации
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
