@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Оформлення замовлення";
+}
+
+<div>
+    <h3>Форма оформления покупки</h3>
+    <p>Для оформления покупки заполните следующие поля:</p>
+    <form method="post">
+        <input type="hidden" value="@ViewBag.CarId" name="CarId" />
+        <table>
+            <tr>
+                <td>Імя:</td>
+                <td><input type="text" name="FullName" /> </td>
+            </tr>
+            <tr>
+                <td>Телефон:</td>
+                <td><input type="text" name="ContactPhone" /></td>
+            </tr>
+            <tr><td><input type="submit" value="Підтвердити" /> </td><td></td></tr>
+        </table>
+    </form>
+</div>

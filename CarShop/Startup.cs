@@ -1,3 +1,5 @@
+using CarShop.Interfaces;
+using CarShop.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace CarShop
 {
@@ -31,6 +34,9 @@ namespace CarShop
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
             });
             services.AddMvc();
+            services.AddTransient<IAllCars, CarRepository>();
+            services.AddMemoryCache();
+            services.AddSession();
 
         }
 
@@ -48,11 +54,10 @@ namespace CarShop
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
 
             app.UseRouting();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Інформація про товар";
+}
+
+<div>
+    <h3>Переглянути автомобіль</h3>
+
+    <div class="row mt-6 mb-2">
+        <input type="hidden" value="@ViewBag.CarId" name="CarId" />
+
+         <form method="get">
+            @{
+                foreach (var car in ViewBag.Cars)
+                {
+                    <div class="col-lg-4">
+                        <img class="img-thumbnail" src="@car.Img" alt="@car.Brand" width=200 height=200/>
+                        <h2>@car.Brand @car.Model</h2>
+                        <p>@car.YearManufacture</p>
+                        <p>@car.BodyCar.NumberDoors</p>
+                        <p>@car.BodyCar.NumberSeats</p>
+                    </div>
+                }
+            }
+         </form>
+    </div>
+</div>

@@ -6,12 +6,12 @@ namespace CarShop.Models
     {
         [Key]
         public int DimensionId { get; set; }
-        public string Carrying { get; set; } // грузоподйомність
-        public string Height { get; set; }
-        public string Width { get; set; }
-        public string Length { get; set; }
-        public string FuelTankVolume { get; set; } // обєм бака 
-        public string Clearance { get; set; }
+        public uint Carrying { get; set; } // грузоподйомність
+        public uint Height { get; set; }
+        public uint Width { get; set; }
+        public uint Length { get; set; }
+        public double FuelTankVolume { get; set; } // обєм бака 
+        public double Clearance { get; set; }
         public virtual ICollection<Car> Cars { get; set; }
     }
 }

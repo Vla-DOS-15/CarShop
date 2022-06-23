@@ -11,13 +11,13 @@
         {
             <div class="col-lg-4">
                 <img class="img-thumbnail" src="@car.Img" alt="@car.Brand" width=200 height=200/>
-                <h2>@car.Brand</h2>
-                <p>@car.Model</p>
+                <h2>@car.Brand @car.Model</h2>
                 <p>@car.YearManufacture</p>
                 <p>@car.BodyCar.NumberDoors</p>
                 <p>@car.BodyCar.NumberSeats</p>
-                <a class="btn btn-outline-secondary btn-lg">Детальніше</a>
-                <a class="btn btn-success btn-lg">Додати в кошик</a>
+                <a class="btn btn-outline-secondary btn-lg" href="/CarInfo/GetInfo/@car.IdCar">Детальніше</a>
+                <a class="btn btn-success btn-lg" href="/Order/Buy/@car.IdCar">Купити</a>
+
             </div>
         }
     }

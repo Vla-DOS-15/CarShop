@@ -27,5 +27,6 @@ namespace CarShop.Models
         public int IdDimension { get; set; }
         [ForeignKey("IdDimension")]
         public Dimension Dimension { get; set; }
+        public virtual Order Order { get; set; }
     }
 }

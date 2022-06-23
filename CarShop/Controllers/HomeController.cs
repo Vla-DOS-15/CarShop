@@ -18,12 +18,9 @@ namespace CarShop.Controllers
         {
             this.dbContext = dbContext;
         }
-
-
-
         public ViewResult Index()
         {
-            IEnumerable<Car> cars = dbContext.Cars.Include(i=>i.BodyCar);
+            IEnumerable<Car> cars = dbContext.Cars.Include(i => i.BodyCar);
             ViewBag.Cars = cars;
             return View();
         }
