@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using CarShop.Models.Identity;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace CarShop
 {
@@ -31,8 +32,13 @@ namespace CarShop
         {
             services.AddDbContext<ApplicationContext>(options =>
     options.UseSqlServer(Configuration.GetConnectionString("CarContext")));
-            services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationContext>();
+            //services.AddIdentity<User, IdentityRole>()
+            //    .AddEntityFrameworkStores<ApplicationContext>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options => //CookieAuthenticationOptions
+                {
+        options.LoginPath = new PathString("/Account/Login");
+    });
             services.AddControllersWithViews();
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);

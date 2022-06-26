@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarShop.Controllers
 {
@@ -18,9 +19,15 @@ namespace CarShop.Controllers
         {
             this.dbContext = dbContext;
         }
+        //[Authorize]
+        //public IActionResult Index()
+        //{
+        //    return Content(User.Identity.Name);
+        //}
+
         public ViewResult Index()
         {
-            IEnumerable<Car> cars = dbContext.Cars.Include(i => i.BodyCar);
+            IEnumerable<Car> cars = dbContext.Cars.Include(i => i.BodyCar).Include(i=>i.EngineCharacteristic).Include(x=>x.CarImage);
             ViewBag.Cars = cars;
             return View();
         }

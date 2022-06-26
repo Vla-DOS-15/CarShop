@@ -1,9 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace CarShop.Models.Identity
 {
-    public class User : IdentityUser
+    public class User
     {
-        public int Year { get; set; }
+        [Key]
+        public int Id { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

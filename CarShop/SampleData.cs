@@ -52,13 +52,34 @@ namespace CarShop
                 };
                 context.BodyCars.AddRange(bodyCar);
                 context.SaveChanges();
+                var refCarImg1 = new CarImage
+                {
+                    RefFirstImg = "https://cdn2.riastatic.com/photosnew/auto/photo/bmw_x3__449587812hd.webp",
+                    RefSecondImg = "https://cdn0.riastatic.com/photosnew/auto/photo/bmw_x3__449587825hd.webp",
+                    RefThirdImg = "https://cdn4.riastatic.com/photosnew/auto/photo/bmw_x3__449587844hd.webp"
+                };
+                var refCarImg2 = new CarImage
+                {
+                    RefFirstImg = "https://cdn2.riastatic.com/photosnew/auto/photo/bmw_x3__449587812hd.webp",
+                    RefSecondImg = "https://cdn0.riastatic.com/photosnew/auto/photo/bmw_x3__449587825hd.webp",
+                    RefThirdImg = "https://cdn4.riastatic.com/photosnew/auto/photo/bmw_x3__449587844hd.webp"
+                };
+                var refCarImg3 = new CarImage
+                {
+                    RefFirstImg = "https://cdn2.riastatic.com/photosnew/auto/photo/bmw_x3__449587812hd.webp",
+                    RefSecondImg = "https://cdn0.riastatic.com/photosnew/auto/photo/bmw_x3__449587825hd.webp",
+                    RefThirdImg = "https://cdn4.riastatic.com/photosnew/auto/photo/bmw_x3__449587844hd.webp"
+                };
+                context.CarImages.AddRange(refCarImg1, refCarImg2, refCarImg3);
+                context.SaveChanges();
                 context.Cars.AddRange(
                     new Car
                     {
                         Brand = "BMW",
-                        Model = "X5",
-                        YearManufacture = 2015,
-                        Img = "https://motor.ru/imgs/2021/12/11/19/5092583/6a1512b9edcb70e917536471e427f73cbdf9ca26.jpg",
+                        Model = "X3",
+                        YearManufacture = 2014,
+                        Price = 900000,
+                        IdCarImage = refCarImg1.IdCarImg,
                         IdBody = bodyCar.BodyId,
                         IdDimension = dimension.DimensionId,
                         IdDynamic = dynamic.DynamicId,
@@ -69,8 +90,9 @@ namespace CarShop
                     {
                         Brand = "BMW",
                         Model = "X5",
-                        YearManufacture = 2015,
-                        Img = "https://motor.ru/imgs/2021/12/11/19/5092583/6a1512b9edcb70e917536471e427f73cbdf9ca26.jpg",
+                        YearManufacture = 2020,
+                        Price = 900000,
+                        IdCarImage = refCarImg2.IdCarImg,
                         IdBody = bodyCar.BodyId,
                         IdDimension = dimension.DimensionId,
                         IdDynamic = dynamic.DynamicId,
@@ -80,9 +102,10 @@ namespace CarShop
                     new Car
                     {
                         Brand = "BMW",
-                        Model = "X5",
-                        YearManufacture = 2015,
-                        Img = "https://motor.ru/imgs/2021/12/11/19/5092583/6a1512b9edcb70e917536471e427f73cbdf9ca26.jpg",
+                        Model = "X6",
+                        YearManufacture = 2021,
+                        Price = 900000,
+                        IdCarImage = refCarImg3.IdCarImg,
                         IdBody = bodyCar.BodyId,
                         IdDimension = dimension.DimensionId,
                         IdDynamic = dynamic.DynamicId,

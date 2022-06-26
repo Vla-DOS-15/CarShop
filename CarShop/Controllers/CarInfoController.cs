@@ -31,7 +31,7 @@ namespace CarShop.Controllers
             if (id == null)
                 return RedirectToAction("/Home/Index");
             ViewBag.CarId = id;
-            IEnumerable<Car> cars = dbContext.Cars.Include(i => i.BodyCar).Where(x => x.IdCar == id);
+            IEnumerable<Car> cars = dbContext.Cars.Include(i => i.BodyCar).Include(i=>i.EngineCharacteristic).Include(x => x.CarImage).Where(x => x.IdCar == id);
             ViewBag.Cars = cars;
             return View();
         }

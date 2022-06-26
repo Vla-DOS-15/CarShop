@@ -13,11 +13,35 @@
                 foreach (var car in ViewBag.Cars)
                 {
                     <div class="col-lg-4">
-                        <img class="img-thumbnail" src="@car.Img" alt="@car.Brand" width=200 height=200/>
+                        <div class="container-fluid my-carudel">
+                          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <img src="@car.CarImage.RefFirstImg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                  <img src="@car.CarImage.RefSecondImg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                  <img src="@car.CarImage.RefThirdImg" class="d-block w-100" alt="...">
+                                </div>
+                              </div>
+                              <button class="carousel-control-prev" type="button" href="#carouselExampleControls"  data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Предыдущий</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" href="#carouselExampleControls"  data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Следующий</span>
+                              </button>
+                            </div>
+                        </div>
+                        
                         <h2>@car.Brand @car.Model</h2>
-                        <p>@car.YearManufacture</p>
+                        <p>Рік випуску: @car.YearManufacture</p>
                         <p>@car.BodyCar.NumberDoors</p>
                         <p>@car.BodyCar.NumberSeats</p>
+                        <p>Стандарт EVRO - @car.EngineCharacteristic.ToxicityStandardEuro</p>
                     </div>
                 }
             }

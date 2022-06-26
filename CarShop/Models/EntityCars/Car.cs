@@ -8,10 +8,14 @@ namespace CarShop.Models
     {
         [Key]
         public int IdCar { get; set; }
-        public string Img { get; set; }
+        //public string Img { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
         public uint YearManufacture { get; set; }
+        public decimal? Price { get; set; }
+        public int IdCarImage { get; set; }
+        [ForeignKey("IdCarImage")]
+        public CarImage CarImage { get; set; }
         public int IdEngine { get; set; }
         [ForeignKey("IdEngine")]
         public Engine EngineCharacteristic { get; set; }
