@@ -2,17 +2,18 @@
     ViewData["Title"] = "Інформація про товар";
 }
 
-<div>
-    <h3>Переглянути автомобіль</h3>
 
-    <div class="row mt-6 mb-2">
+
+<div>
+	<div class="section-title">
+		<h2>Перегляд автомобіля</h2>
+	</div>
         <input type="hidden" value="@ViewBag.CarId" name="CarId" />
 
          <form method="get">
             @{
                 foreach (var car in ViewBag.Cars)
                 {
-                    <div class="col-lg-4">
                         <div class="container-fluid my-carudel">
                           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                               <div class="carousel-inner">
@@ -36,15 +37,55 @@
                               </button>
                             </div>
                         </div>
+                        <br style="line-height: 4"/>
+                        <h2>@car.Brand @car.Model @car.YearManufacture року</h2>
+
+                        <div class="container">
+                          <div class="row">
+                            <div class="col">
+                            <h3>Трансмісія</h3>
+                            <p>Коробка передач - @car.Transmission.GearBox</p>
+                            <p>Кількість передач - @car.Transmission.NumberGear</p>
+                            <p>Тип привода - @car.Transmission.TypeDrive</p>
+                            
+                            <h3>Динаміка</h3>
+                            <p>Час розгону до 100 км/г - @car.Dynamic.RacingTime c</p>
+                            <p>Максимальна швидкість - @car.Dynamic.MaxSpeed км/г</p>
+
+                            <h3>Кузов</h3>
+                            <p>Кількість дверей - @car.BodyCar.NumberDoors</p>
+                            <p>Кількість місць - @car.BodyCar.NumberSeats</p>
+
+                            </div>
+                            <div class="col order-1">
+                              <h3>Двигун</h3>
+                              <p>Норма токсичносі EURO - @car.EngineCharacteristic.ToxicityStandardEuro</p>
+                              <p>Кількість циліндрів/клапанів - @car.EngineCharacteristic.NumberCylindersValves</p>
+                              <p>Об'єм - @car.EngineCharacteristic.Volume</p>
+                              <p>Пальне - @car.EngineCharacteristic.Fuel</p>
+                              <p>Витрати пального - @car.EngineCharacteristic.FuelConsumption л.</p>
+                              <p>Потужність двигуна - @car.EngineCharacteristic.EnginePower к.с./об.хв.</p>
+                              <p>Розміщення циліндров - @car.EngineCharacteristic.CylinderArrangement</p>
+                              <p>Макс. крутящий момент - @car.EngineCharacteristic.MaxTorque Нм.об.хв.</p>
+                            </div>
+
+                            <div class="col order-5">
+                              <h3>Габарити</h3>
+                              <p>Вантажопідйомність - @car.Dimension.Carrying кг</p>
+                              <p>Висота - @car.Dimension.Height мм</p>
+                              <p>Ширина - @car.Dimension.Width мм</p>
+                              <p>Довжина - @car.Dimension.Length мм</p>
+                              <p>Об'єм бака - @car.Dimension.FuelTankVolume л</p>
+                              <p>Кліренс - @car.Dimension.Clearance мм</p>
+                            </div>
+                          </div>
+                        </div>
                         
-                        <h2>@car.Brand @car.Model</h2>
-                        <p>Рік випуску: @car.YearManufacture</p>
-                        <p>@car.BodyCar.NumberDoors</p>
-                        <p>@car.BodyCar.NumberSeats</p>
-                        <p>Стандарт EVRO - @car.EngineCharacteristic.ToxicityStandardEuro</p>
-                    </div>
+                        <br style="line-height: 10"/>
+                        <hr />
+                        <br style="line-height: 10"/>
+
                 }
             }
          </form>
-    </div>
 </div>

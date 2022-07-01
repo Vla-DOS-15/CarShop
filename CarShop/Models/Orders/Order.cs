@@ -13,6 +13,6 @@ namespace CarShop.Models
         public DateTime DateBuy { get; set; }
         public int CarId { get; set; } // ссылка на связанную модель Phone
         [ForeignKey("CarId")]
-        public virtual Car Car { get; set; }
+        public Car Car { get; set; }
     }
 }

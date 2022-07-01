@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CarShop.Models.Car>
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Головна";
 }
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -12,10 +12,8 @@
         {
             <div class="col-lg-4">
                 <img class="img-thumbnail w-100" src="@car.CarImage.RefFirstImg" alt="@car.Brand"/>
-                <h2>@car.Brand @car.Model</h2>
-                <p>@car.YearManufacture</p>
-                <p>@car.BodyCar.NumberDoors</p>
-                <p>@car.BodyCar.NumberSeats</p>
+                <h2>@car.Brand @car.Model @car.YearManufacture року</h2>
+                <h4>Ціна - @car.Price.ToString("c")</h4>
                 <a class="btn btn-outline-secondary btn-lg" href="/CarInfo/GetInfo/@car.IdCar">Детальніше</a>
                 <a class="btn btn-success btn-lg" href="/Order/Buy/@car.IdCar">Купити</a>
 
@@ -23,165 +21,3 @@
         }
     }
     </div>
-
-@*    <section id="services" class="mt-5">
-      <div class="container">
-        <div class="section-title">
-          <h2>Послуги</h2>
-        </div>
-        <div
-          id="carouselExampleIndicators"
-          class="carousel carousel-dark slide"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="3"
-              aria-label="Slide 4"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="4"
-              aria-label="Slide 5"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="5"
-              aria-label="Slide 6"
-            ></button>
-          </div>
-          <div class="carousel-inner pb-5">
-            <div class="carousel-item active">
-              <img
-                src="https://motor.ru/imgs/2021/12/11/19/5092583/6a1512b9edcb70e917536471e427f73cbdf9ca26.jpg"
-                class="d-block w-50 mx-auto"
-                alt="service 1"
-              />
-              <h3 class="text-center mt-3">Індивідуальні угоди</h3>
-            </div>
-            <div class="carousel-item">
-              <img
-                src="https://motor.ru/imgs/2021/12/11/19/5092583/6a1512b9edcb70e917536471e427f73cbdf9ca26.jpg"
-                class="d-block w-50 mx-auto"
-                alt="service 2"
-              />
-              <h3 class="text-center mt-3">Постійне та привабливе стимулювання клієнтів</h3>
-            </div>
-            <div class="carousel-item">
-              <img
-                src="https://motor.ru/imgs/2021/12/11/19/5092583/6a1512b9edcb70e917536471e427f73cbdf9ca26.jpg"
-                class="d-block w-50 mx-auto"
-                alt="service 3"
-              />
-              <h3 class="text-center mt-3">Найновіші інновації в технології ставок</h3>
-            </div>
-            <div class="carousel-item">
-              <img
-                src="https://motor.ru/imgs/2021/12/11/19/5092583/6a1512b9edcb70e917536471e427f73cbdf9ca26.jpg"
-                class="d-block w-50 mx-auto"
-                alt="service 4"
-              />
-              <h3 class="text-center mt-3">
-                Широкий спектр креативних ресурсів на вашому сайті(ах)
-              </h3>
-            </div>
-            <div class="carousel-item">
-              <img
-                src="https://motor.ru/imgs/2021/12/11/19/5092583/6a1512b9edcb70e917536471e427f73cbdf9ca26.jpg"
-                class="d-block w-50 mx-auto"
-                alt="service 5"
-              />
-              <h3 class="text-center mt-3">
-                Експертні поради від нашої спеціальної команди партнерів
-              </h3>
-            </div>
-            <div class="carousel-item">
-              <img
-                src="https://motor.ru/imgs/2021/12/11/19/5092583/6a1512b9edcb70e917536471e427f73cbdf9ca26.jpg"
-                class="d-block w-50 mx-auto"
-                alt="service 6"
-              />
-              <h3 class="text-center mt-3">Першокласне партнерство</h3>
-            </div>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <main>
-          <div class="carousel slide" id="carouselControls" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img class="d-block w-100" src="https://ireland.apollo.olxcdn.com/v1/files/zdixp0regae-UA/image">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="https://motor.ru/imgs/2021/12/11/19/5092583/6a1512b9edcb70e917536471e427f73cbdf9ca26.jpg">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="https://motor.ru/imgs/2021/12/11/19/5092583/6a1512b9edcb70e917536471e427f73cbdf9ca26.jpg">
-            </div>
-          </div>
-          <a class="carosel-control-prev" href="#carouselControls" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-          </a>
-          <a class="carosel-control-next" href="#carouselControls" role="button" data-slide="next">
-              <span class="carousel-control-next-icon"></span>
-          </a>
-        </div>
-    </main>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
-
-
-    <div class="col-lg-6">
-		<iframe
-			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40657.208716422276!2d30.446827411651594!3d50.4396935099334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cefec9c91c9f%3A0x10bff155724e9fa0!2sMcDonald&#39;s!5e0!3m2!1sru!2sua!4v1653292835038!5m2!1sru!2sua"
-			width="100%"
-			height="100%"
-			style="border: 0"
-			allowfullscreen=""
-			loading="lazy"
-			referrerpolicy="no-referrer-when-downgrade"
-		></iframe>
-	</div>

@@ -31,14 +31,15 @@ namespace CarShop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationContext>(options =>
-    options.UseSqlServer(Configuration.GetConnectionString("CarContext")));
-            //services.AddIdentity<User, IdentityRole>()
-            //    .AddEntityFrameworkStores<ApplicationContext>();
+                options.UseSqlServer(Configuration.GetConnectionString("CarContext")));
+
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options => //CookieAuthenticationOptions
+                .AddCookie(options =>
                 {
-        options.LoginPath = new PathString("/Account/Login");
-    });
+                    options.LoginPath = new PathString("/Account/Login");
+                    options.AccessDeniedPath = new PathString("/Account/Login");
+                });
+
             services.AddControllersWithViews();
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
