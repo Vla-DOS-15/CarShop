@@ -40,7 +40,7 @@ namespace CarShop.Controllers
             dbContext.Orders.Add(order);
             // сохраняем в бд все изменения
             dbContext.SaveChanges();
-            return RedirectToAction("Index");//"Спасибо, " + order.FullName + ", за покупку!";
+            return RedirectToAction("Index");
         }
     }
 }
